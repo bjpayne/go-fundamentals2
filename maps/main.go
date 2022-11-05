@@ -1,14 +1,39 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
-	dictionary := map[string]string{
-		"Go":     "A programming language created by Google",
-		"Gopher": "A software engineer who builds with Go.",
+	courses := map[int]string{
+		1: "Calculus",
+		2: "Biology",
+		3: "Chemistry",
+		4: "Computer Science",
+		5: "Communications",
+		6: "English",
+		7: "Cantonese",
 	}
 
-	for _, language := range dictionary {
-		fmt.Println(language)
+	// Not necessarily in order...weird
+	for index, course := range courses {
+		if strings.HasPrefix(course, "C") {
+			fmt.Printf("%d: %s\n", index, course)
+		}
+	}
+
+	fmt.Println("---------------------------")
+
+	courses[4] = "Algorithms"
+	courses[8] = "Spanish"
+
+	delete(courses, 1)
+
+	// Not necessarily in order...weird
+	for index, course := range courses {
+		if strings.HasPrefix(course, "C") {
+			fmt.Printf("%d: %s\n", index, course)
+		}
 	}
 }
